@@ -13,4 +13,3 @@ IPython 6.2.1 -- An enhanced Interactive Python. Type '?' for help.
 
 In [1]:
 ```
-#коммент
