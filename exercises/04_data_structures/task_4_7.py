@@ -10,3 +10,16 @@
 """
 
 mac = "AAAA:BBBB:CCCC"
+
+### Решение
+In [34]: mac = "AAAA:BBBB:CCCC"                                                                      
+
+In [35]: mac = mac.replace(':','')                                                                   
+
+In [36]: mac = int(mac,16)                                                                           
+
+In [37]: mac = bin(mac)                                                                              
+
+In [38]: print(mac)                                                                                  
+0b101010101010101010111011101110111100110011001100
+                                                                
