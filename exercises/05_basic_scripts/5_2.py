@@ -37,7 +37,7 @@ oktet4 = int(ip[3])
 ip_template = """
 Network
 {0:<8} {1:<8} {2:<8} {3:<8}
-{0:08b} {1:08b} {2:08b} {3:08b}
+{0:08} {1:08} {2:08} {3:08}
 """
 print(ip_template.format(oktet1,oktet2,oktet3,oktet4))
 
@@ -46,11 +46,6 @@ mask = network[network.find('/')::]
 mask = int(mask.lstrip('/'))
 maskbin = "1" * mask
 maskbin = "{:<032}".format(maskbin)
-
-moktet1 = int(maskbin[0:8], 2)
-moktet2 = int(maskbin[9:16], 2)
-moktet3 = int(maskbin[17:24], 2)
-moktet4 = int(maskbin[25:32], 2)
 
 mask_template = '''
 /{4:<}
