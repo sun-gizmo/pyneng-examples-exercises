@@ -43,23 +43,10 @@ bin_ip = "00001010000000010000000111000011"
 network = input('Введите IP-сети в формате 10.1.1.0/24: ')
 ip = network[:network.find('/')]
 ip = ip.split('.')
-oktet1 = bin(int(ip[0]))
-oktet2 = bin(int(ip[1]))
-oktet3 = bin(int(ip[2]))
-oktet4 = bin(int(ip[3]))
-
-
-oktet1 = oktet1[2::]
-oktet2 = oktet2[2::]
-oktet3 = oktet3[2::]
-oktet4 = oktet4[2::]
-
-bin_oktet1 = "{:>08}".format(oktet1)
-bin_oktet2 = "{:>08}".format(oktet2)
-bin_oktet3 = "{:>08}".format(oktet3)
-bin_oktet4 = "{:>08}".format(oktet4)
-
-bin_ip = (bin_oktet1+bin_oktet2+bin_oktet3+bin_oktet4)
+bin_ip = []
+for oktets in ip:
+    bin_ip.append('{:08b}'.format(int(ip[0])))
+bin_ip = (bin_ip[0]) + (bin_ip[1]) + (bin_ip[2]) + (bin_ip[3])
 
 mask = network[network.find('/')::]
 mask = int(mask.lstrip('/'))
