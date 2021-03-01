@@ -1,3 +1,4 @@
+!# /usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Задание 7.1
@@ -13,3 +14,24 @@ Outbound Interface    FastEthernet0/0
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
+#Решение
+
+with open('ospf.txt', 'r') as f:
+    ospf = f.readlines()
+    for lines in ospf:
+        lines = lines.strip().split()
+        protocol = lines[0].replace('O', 'OSPF')
+        prefix = lines[1]
+        metric = lines[2].strip('[]')
+        hop = lines[4].rstrip(',')
+        update = lines[5].rstrip(',')
+        interface = lines[6]
+        ospf_route = '''
+        Protocol              {}
+        Prefix                {}
+        AD/Metric             {}
+        Next-Hop              {}
+        Last update           {}
+        Outbound Interface    {}
+        '''
+        print(ospf_route.format(protocol,prefix,metric,hop,update,interface))
